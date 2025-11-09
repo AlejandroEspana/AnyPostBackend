@@ -1,0 +1,27 @@
+## Example application.properties for local development and templates for production
+# This file is intended to be committed to the repository as a template.
+# Replace placeholders or set corresponding environment variables in your
+# CI / production environment instead of storing secrets here.
+
+# Application name
+spring.application.name=AutomatAununcios
+
+# H2 console for local development (safe to use for dev only)
+spring.h2.console.enable=true
+spring.h2.console.path=/h2-console
+
+# Datasource (example placeholders). For production, prefer environment variables
+# Replace values or set SPRING_DATASOURCE_* env vars in your host/CI/Platform.
+spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:h2:mem:anuncio}
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME:sa}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:}
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+# Example: using PostgreSQL in production
+# spring.datasource.url=jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:anuncios}
+# spring.datasource.username=${DB_USER:}
+# spring.datasource.password=${DB_PASS:}
+
+# Spring profile (can be overridden by SPRING_PROFILES_ACTIVE env var)
+spring.profiles.active=${SPRING_PROFILES_ACTIVE:dev}
